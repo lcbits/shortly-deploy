@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 
     eslint: {
       target: [
-        // Add list of files to lint here
+        './server-config.js', './server.js', '../app/collections/links.js'
       ]
     },
 
@@ -51,6 +51,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: 'git push live master',
       }
     },
   });
@@ -76,6 +77,10 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
+  grunt.registerTask('lint', function(n) {
+    grunt.task.run(['eslint']);
+  });
+
   grunt.registerTask('build', [
   ]);
 
@@ -88,7 +93,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
-    // add your deploy tasks here
+    'shell:prodServer'
   ]);
 
 
