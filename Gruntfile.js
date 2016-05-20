@@ -110,9 +110,11 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', [
-    'shell:prodServer'
-  ]);
+  grunt.registerTask('deploy', function(n) {
+    if(grunt.option['prod']) {
+      grunt.task.run([ 'shell:prodServer' ]);
+    }
+  });
 
 
 };

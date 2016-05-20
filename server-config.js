@@ -4,10 +4,13 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var util = require('./lib/utility');
+var mongoose = require('mongoose');
 
 var handler = require('./lib/request-handler');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/shortlydeploydb');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');

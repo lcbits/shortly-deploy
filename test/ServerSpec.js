@@ -4,14 +4,14 @@ var expect = require('chai').expect;
 var app = require('../server-config.js');
 
 var db = require('../app/config');
-var User = require('../app/models/user');
-var Link = require('../app/models/link');
+var User = require('../app/models/mUser');
+var Link = require('../app/models/mlink');
 
 /////////////////////////////////////////////////////
 // NOTE: these tests are designed for mongo!
 /////////////////////////////////////////////////////
 
-xdescribe('', function() {
+describe('', function() {
 
   beforeEach(function(done) {
     // Log out currently signed in user
@@ -169,7 +169,7 @@ xdescribe('', function() {
 
   }); // 'Privileged Access'
 
-  describe('Account Creation:', function() {
+  xdescribe('Account Creation:', function() {
 
     it('Signup creates a new user', function(done) {
       request(app)
@@ -216,7 +216,7 @@ xdescribe('', function() {
       });
     });
 
-    it('Logs in existing users', function(done) {
+    it.only('Logs in existing users', function(done) {
       request(app)
         .post('/login')
         .send({
