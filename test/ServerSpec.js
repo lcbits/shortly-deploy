@@ -169,7 +169,7 @@ describe('', function() {
 
   }); // 'Privileged Access'
 
-  xdescribe('Account Creation:', function() {
+  describe('Account Creation:', function() {
 
     it('Signup creates a new user', function(done) {
       request(app)
@@ -216,7 +216,7 @@ describe('', function() {
       });
     });
 
-    it.only('Logs in existing users', function(done) {
+    it('Logs in existing users', function(done) {
       request(app)
         .post('/login')
         .send({
